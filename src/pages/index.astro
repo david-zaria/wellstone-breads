@@ -8,10 +8,12 @@ import { ShoppingCart } from '../components/ShoppingCart';
 // Load products from JSON file
 let products = [];
 try {
-  const response = await fetch(new URL('/data/products.json', Astro.site || 'http://localhost:4321'));
-  products = await response.json();
+  // Import products directly - works at build time
+  const productsData = await import('../../public/data/products.json');
+  products = productsData.default || [];
 } catch (error) {
   console.error('Failed to load products:', error);
+  products = [];
 }
 
 // Separate featured and regular products
