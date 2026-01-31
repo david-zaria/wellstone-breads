@@ -1,0 +1,53 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="#6B3410"/>
+
+  <!-- Inner circle -->
+  <circle cx="256" cy="256" r="220" fill="#8B4513"/>
+
+  <!-- Wheat stalk design -->
+  <g transform="translate(256, 256)">
+    <!-- Center stem -->
+    <line x1="0" y1="-120" x2="0" y2="80" stroke="#F59E0B" stroke-width="8" stroke-linecap="round"/>
+
+    <!-- Wheat grains - left side -->
+    <ellipse cx="-25" cy="-100" rx="20" ry="30" fill="#FCD34D" transform="rotate(-30 -25 -100)"/>
+    <ellipse cx="-30" cy="-70" rx="22" ry="32" fill="#FBBF24" transform="rotate(-35 -30 -70)"/>
+    <ellipse cx="-32" cy="-40" rx="24" ry="34" fill="#F59E0B" transform="rotate(-40 -32 -40)"/>
+    <ellipse cx="-30" cy="-10" rx="22" ry="32" fill="#FBBF24" transform="rotate(-35 -30 -10)"/>
+    <ellipse cx="-25" cy="20" rx="20" ry="30" fill="#FCD34D" transform="rotate(-30 -25 20)"/>
+
+    <!-- Wheat grains - right side -->
+    <ellipse cx="25" cy="-100" rx="20" ry="30" fill="#FCD34D" transform="rotate(30 25 -100)"/>
+    <ellipse cx="30" cy="-70" rx="22" ry="32" fill="#FBBF24" transform="rotate(35 30 -70)"/>
+    <ellipse cx="32" cy="-40" rx="24" ry="34" fill="#F59E0B" transform="rotate(40 32 -40)"/>
+    <ellipse cx="30" cy="-10" rx="22" ry="32" fill="#FBBF24" transform="rotate(35 30 -10)"/>
+    <ellipse cx="25" cy="20" rx="20" ry="30" fill="#FCD34D" transform="rotate(30 25 20)"/>
+
+    <!-- Top wheat head -->
+    <ellipse cx="0" cy="-125" rx="18" ry="28" fill="#FBBF24"/>
+
+    <!-- Detail lines on grains -->
+    <g stroke="#D97706" stroke-width="2" stroke-linecap="round" opacity="0.4">
+      <line x1="-25" y1="-105" x2="-25" y2="-95"/>
+      <line x1="-30" y1="-75" x2="-30" y2="-65"/>
+      <line x1="-32" y1="-45" x2="-32" y2="-35"/>
+      <line x1="25" y1="-105" x2="25" y2="-95"/>
+      <line x1="30" y1="-75" x2="30" y2="-65"/>
+      <line x1="32" y1="-45" x2="32" y2="-35"/>
+    </g>
+  </g>
+
+  <!-- Bottom accent - bread slice -->
+  <g transform="translate(256, 380)">
+    <!-- Bread crust -->
+    <ellipse cx="0" cy="0" rx="80" ry="50" fill="#D4AD7A"/>
+    <!-- Bread crumb interior -->
+    <ellipse cx="0" cy="5" rx="65" ry="40" fill="#FAF6F1"/>
+    <!-- Air pockets -->
+    <circle cx="-20" cy="0" r="8" fill="#E8D4B8"/>
+    <circle cx="15" cy="5" r="6" fill="#E8D4B8"/>
+    <circle cx="-5" cy="-5" r="5" fill="#E8D4B8"/>
+    <circle cx="25" cy="-8" r="7" fill="#E8D4B8"/>
+  </g>
+</svg>
