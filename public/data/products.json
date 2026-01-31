@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "id": "cml2odkkl00031rswcyhl0kvs",
+    "slug": "classic-sourdough",
+    "name": "Classic Sourdough",
+    "description": "Our signature loaf with a perfectly tangy flavor, chewy golden crust, and soft airy interior. Made with 100% organic flour and naturally fermented for 48 hours using our house-made starter. Perfect for sandwiches, toast, or enjoyed fresh with butter.",
+    "imageUrl": "https://images.unsplash.com/photo-1707915317302-9565553eea02?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjYyNjJ8MHwxfHNlYXJjaHwxfHxzb3VyZG91Z2glMjBmb29kJTIwcGhvdG9ncmFwaHl8ZW58MHwwfHx8MTc2OTg5MDI1MHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "bread",
+    "price": 12,
+    "currency": "usd",
+    "isFeatured": true,
+    "sortOrder": 1
+  },
+  {
+    "id": "cml2odkmi00051rswj6o5c65x",
+    "slug": "hot-honey-feta-sourdough",
+    "name": "Hot Honey Feta Sourdough",
+    "description": "A bold twist on our classic sourdough, featuring creamy feta cheese and a drizzle of spicy hot honey baked right into the crust. The perfect balance of tangy, sweet, and spicy. This artisan loaf is ideal for cheese boards, bruschetta, or enjoying on its own.",
+    "imageUrl": "https://images.unsplash.com/photo-1582869590958-205fa7e1b715?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjYyNjJ8MHwxfHNlYXJjaHwxfHxob3QlMjBob25leSUyMGZldGElMjBzb3VyZG91Z2glMjBmb29kJTIwcGhvdG9ncmFwaHl8ZW58MHwwfHx8MTc2OTg5MDI1M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "bread",
+    "price": 14,
+    "currency": "usd",
+    "isFeatured": true,
+    "sortOrder": 2
+  },
+  {
+    "id": "cml2odknj00071rswg4br86cy",
+    "slug": "soft-pretzels",
+    "name": "Soft Pretzels (3-pack)",
+    "description": "Traditional soft pretzels made fresh daily with a perfectly chewy texture and golden-brown crust. Topped with coarse sea salt and baked to perfection using authentic German techniques. Great for snacking, parties, or lunch boxes.",
+    "imageUrl": null,
+    "category": "pretzel",
+    "price": 8,
+    "currency": "usd",
+    "isFeatured": true,
+    "sortOrder": 3
+  },
+  {
+    "id": "cml2odkoj00091rswt1airy2f",
+    "slug": "rosemary-focaccia",
+    "name": "Rosemary Focaccia",
+    "description": "Light and airy Italian flatbread infused with fresh rosemary, sea salt, and premium olive oil. Baked daily using traditional techniques for a crispy exterior and pillowy interior. Perfect for sandwiches, dipping in olive oil, or as a side for any meal.",
+    "imageUrl": "https://images.unsplash.com/photo-1733410647363-4c81ee576ff8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjYyNjJ8MHwxfHNlYXJjaHwxfHxyb3NlbWFyeSUyMGZvY2FjY2lhJTIwZm9vZCUyMHBob3RvZ3JhcGh5fGVufDB8MHx8fDE3Njk4OTAyNjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "focaccia",
+    "price": 10,
+    "currency": "usd",
+    "isFeatured": true,
+    "sortOrder": 4
+  }
+]
