@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Get order number from query params
+const orderNumber = Astro.url.searchParams.get('order');
+---
+
+<BaseLayout
+  title="Order Confirmed - Wellstone Breads"
+  description="Your order has been confirmed"
+>
+  <Header />
+
+  <main class="py-16 bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 max-w-2xl">
+      <div class="bg-white rounded-lg shadow-lg p-8 text-center">
+        <!-- Success Icon -->
+        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg
+            class="w-10 h-10 text-green-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 13l4 4L19 7"
+            ></path>
+          </svg>
+        </div>
+
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">Order Confirmed!</h1>
+
+        {orderNumber ? (
+          <>
+            <p class="text-lg text-gray-700 mb-2">
+              Thank you for your order!
+            </p>
+            <p class="text-lg text-gray-700 mb-6">
+              Your order number is: <strong class="text-primary">{orderNumber}</strong>
+            </p>
+          </>
+        ) : (
+          <p class="text-lg text-gray-700 mb-6">
+            Thank you for your order! You should receive a confirmation email shortly.
+          </p>
+        )}
+
+        <div class="bg-gray-50 rounded-lg p-6 mb-6 text-left">
+          <h2 class="font-semibold text-gray-900 mb-3">What happens next?</h2>
+          <ol class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-2">
+              <span class="font-bold text-primary">1.</span>
+              <span>You'll receive a confirmation email with your order details</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="font-bold text-primary">2.</span>
+              <span>We'll prepare your fresh-baked goods</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="font-bold text-primary">3.</span>
+              <span>We'll contact you when your order is ready for pickup</span>
+            </li>
+          </ol>
+        </div>
+
+        <div class="space-y-3">
+          <a
+            href="/"
+            class="block bg-primary hover:bg-accent text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+          >
+            Back to Home
+          </a>
+          <p class="text-sm text-gray-600">
+            Questions? Email us at <a href="mailto:orders@wellstonebreads.com" class="text-primary hover:underline">orders@wellstonebreads.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+
+  <script>
+    // Clear cart after successful order
+    localStorage.removeItem('cart');
+  </script>
+</BaseLayout>

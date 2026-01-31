@@ -1,0 +1,93 @@
+---
+interface Props {
+  product: {
+    id: string;
+    slug: string;
+    name: string;
+    description: string;
+    imageUrl: string | null;
+    category: string;
+    price: number;
+    isFeatured: boolean;
+  };
+}
+
+const { product } = Astro.props;
+
+// Category badge colors using new design system
+const categoryColors: Record<string, string> = {
+  bread: 'badge-accent',
+  focaccia: 'badge-primary',
+  pretzel: 'badge-success',
+};
+
+const categoryIcons: Record<string, string> = {
+  bread: '🍞',
+  focaccia: '🫓',
+  pretzel: '🥨',
+};
+---
+
+<div class="product-card">
+  <!-- Product Image -->
+  <div class="relative overflow-hidden">
+    {product.imageUrl ? (
+      <img
+        src={product.imageUrl}
+        alt={product.name}
+        class="product-card-image"
+      />
+    ) : (
+      <div class="w-full h-64 bg-gradient-to-br from-neutral-100 to-neutral-200 flex items-center justify-center">
+        <svg class="w-20 h-20 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+        </svg>
+      </div>
+    )}
+
+    <!-- Badges overlay -->
+    <div class="absolute top-4 left-4 right-4 flex items-center justify-between">
+      <span class={`${categoryColors[product.category] || 'badge-primary'}`}>
+        <span class="mr-1">{categoryIcons[product.category] || '🥖'}</span>
+        {product.category}
+      </span>
+      {product.isFeatured && (
+        <span class="badge bg-primary-600 text-white shadow-lg">
+          ⭐ Featured
+        </span>
+      )}
+    </div>
+  </div>
+
+  <!-- Product Info -->
+  <div class="p-6 bg-white">
+    <h3 class="text-xl font-serif font-bold text-primary-900 mb-2 group-hover:text-primary-700 transition-colors">
+      {product.name}
+    </h3>
+    <p class="text-neutral-600 text-sm mb-4 line-clamp-2">
+      {product.description}
+    </p>
+
+    <div class="flex items-center justify-between mt-6">
+      <div class="flex flex-col">
+        <span class="text-xs text-neutral-500 font-medium uppercase tracking-wide mb-1">
+          Price
+        </span>
+        <span class="text-3xl font-serif font-bold text-primary-700">
+          ${product.price.toFixed(2)}
+        </span>
+      </div>
+
+      <button
+        type="button"
+        class="add-to-cart-btn btn-primary"
+        data-product-id={product.id}
+        data-product-name={product.name}
+        data-product-price={product.price}
+        data-product-image={product.imageUrl}
+      >
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>

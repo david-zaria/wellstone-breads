@@ -1,0 +1,90 @@
+---
+// Footer component for Wellstone Breads
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-primary-900 text-neutral-50 border-t-4 border-accent-500">
+  <div class="container-custom py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <!-- About -->
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-10 h-10 bg-accent-500 rounded-lg flex items-center justify-center">
+            <span class="text-2xl">🌾</span>
+          </div>
+          <h3 class="text-xl font-serif font-bold text-neutral-50">Wellstone Breads</h3>
+        </div>
+        <p class="text-neutral-300 leading-relaxed">
+          Artisan sourdough bread, focaccia, and pretzels baked fresh daily with love and tradition.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-lg font-serif font-bold text-neutral-50 mb-4">Quick Links</h3>
+        <ul class="space-y-3">
+          <li>
+            <a
+              href="/#products"
+              class="text-neutral-300 hover:text-accent-300 transition-colors duration-200 flex items-center gap-2"
+            >
+              <span class="text-accent-400">→</span>
+              Products
+            </a>
+          </li>
+          <li>
+            <a
+              href="/#about"
+              class="text-neutral-300 hover:text-accent-300 transition-colors duration-200 flex items-center gap-2"
+            >
+              <span class="text-accent-400">→</span>
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href="/checkout"
+              class="text-neutral-300 hover:text-accent-300 transition-colors duration-200 flex items-center gap-2"
+            >
+              <span class="text-accent-400">→</span>
+              Order Now
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-lg font-serif font-bold text-neutral-50 mb-4">Get in Touch</h3>
+        <div class="space-y-3">
+          <p class="text-neutral-300">
+            <span class="block text-sm text-neutral-400 mb-1">Email</span>
+            <a
+              href="mailto:orders@wellstonebreads.com"
+              class="text-accent-300 hover:text-accent-200 transition-colors duration-200"
+            >
+              orders@wellstonebreads.com
+            </a>
+          </p>
+          <p class="text-neutral-300 text-sm leading-relaxed">
+            Order online and pick up fresh from Nicole's kitchen
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="border-t border-primary-800 mt-10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-neutral-400 text-sm">
+      <p>&copy; {currentYear} Wellstone Breads. All rights reserved.</p>
+      <p>
+        Made with <span class="text-accent-400">❤️</span> and powered by
+        <a
+          href="https://contentflow.vercel.app"
+          class="text-accent-300 hover:text-accent-200 transition-colors duration-200 font-medium"
+        >
+          ContentFlow CMS
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
