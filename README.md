@@ -42,3 +42,4 @@ All commands are run from the root of the project, from a terminal:
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
 // Trigger rebuild Sat Jan 31 18:53:07 EST 2026
+<!-- Trigger: Sat Jan 31 20:18:39 EST 2026 -->
