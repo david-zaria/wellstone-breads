@@ -6,11 +6,15 @@ import ProductCard from '../components/ProductCard.astro';
 import { ShoppingCart } from '../components/ShoppingCart';
 
 // Load products from JSON file
+import { readFileSync } from 'fs';
+import { join } from 'path';
+
 let products = [];
 try {
-  // Import products directly - works at build time
-  const productsData = await import('../../public/data/products.json');
-  products = productsData.default || [];
+  // Read products.json from public directory
+  const productsPath = join(process.cwd(), 'public', 'data', 'products.json');
+  const productsData = readFileSync(productsPath, 'utf-8');
+  products = JSON.parse(productsData);
 } catch (error) {
   console.error('Failed to load products:', error);
   products = [];
