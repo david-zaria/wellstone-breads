@@ -32,7 +32,7 @@
     "category": "pretzel",
     "price": 8,
     "currency": "usd",
-    "isFeatured": true,
+    "isFeatured": false,
     "sortOrder": 3
   },
   {
@@ -44,7 +44,7 @@
     "category": "focaccia",
     "price": 10,
     "currency": "usd",
-    "isFeatured": true,
+    "isFeatured": false,
     "sortOrder": 4
   }
 ]
