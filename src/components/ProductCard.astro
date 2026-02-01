@@ -47,7 +47,7 @@ const categoryIcons: Record<string, string> = {
 
     <!-- Badges overlay -->
     <div class="absolute top-4 left-4 right-4 flex items-center justify-between">
-      <span class={`${categoryColors[product.category] || 'badge-primary'}`}>
+      <span class={`badge ${categoryColors[product.category] || 'badge-primary'}`}>
         <span class="mr-1">{categoryIcons[product.category] || '🥖'}</span>
         {product.category}
       </span>
