@@ -39,6 +39,7 @@ export function ShoppingCart({ siteId }: { siteId: string }) {
               : item
           );
           localStorage.setItem('cart', JSON.stringify(newCart));
+          window.dispatchEvent(new CustomEvent('cart-updated'));
           return newCart;
         } else {
           // Add new item
@@ -47,6 +48,7 @@ export function ShoppingCart({ siteId }: { siteId: string }) {
             { productId, name, price: parseFloat(price), quantity: 1, imageUrl },
           ];
           localStorage.setItem('cart', JSON.stringify(newCart));
+          window.dispatchEvent(new CustomEvent('cart-updated'));
           return newCart;
         }
       });
@@ -55,8 +57,18 @@ export function ShoppingCart({ siteId }: { siteId: string }) {
       setIsOpen(true);
     }) as EventListener;
 
+    // Listen for open-cart event from header
+    const handleOpenCart = () => {
+      setIsOpen(true);
+    };
+
     window.addEventListener('cart-add-item', handleCartUpdate);
-    return () => window.removeEventListener('cart-add-item', handleCartUpdate);
+    window.addEventListener('open-cart', handleOpenCart);
+
+    return () => {
+      window.removeEventListener('cart-add-item', handleCartUpdate);
+      window.removeEventListener('open-cart', handleOpenCart);
+    };
   }, []);
 
   const updateQuantity = (productId: string, change: number) => {
@@ -70,6 +82,7 @@ export function ShoppingCart({ siteId }: { siteId: string }) {
         .filter((item) => item.quantity > 0);
 
       localStorage.setItem('cart', JSON.stringify(newCart));
+      window.dispatchEvent(new CustomEvent('cart-updated'));
       return newCart;
     });
   };
@@ -78,6 +91,7 @@ export function ShoppingCart({ siteId }: { siteId: string }) {
     setCart((prevCart) => {
       const newCart = prevCart.filter((item) => item.productId !== productId);
       localStorage.setItem('cart', JSON.stringify(newCart));
+      window.dispatchEvent(new CustomEvent('cart-updated'));
       return newCart;
     });
   };
@@ -85,6 +99,7 @@ export function ShoppingCart({ siteId }: { siteId: string }) {
   const clearCart = () => {
     setCart([]);
     localStorage.removeItem('cart');
+    window.dispatchEvent(new CustomEvent('cart-updated'));
   };
 
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);

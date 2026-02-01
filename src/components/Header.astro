@@ -38,6 +38,21 @@
         >
           About
         </a>
+
+        <!-- Cart Button -->
+        <button
+          id="header-cart-btn"
+          class="relative p-2 rounded-lg hover:bg-primary-800 transition-colors duration-200"
+          aria-label="Shopping cart"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+          </svg>
+          <span id="header-cart-count" class="hidden absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+            0
+          </span>
+        </button>
+
         <a
           href="/checkout"
           class="btn-secondary ml-2"
@@ -46,16 +61,33 @@
         </a>
       </nav>
 
-      <!-- Mobile Menu Button -->
-      <button
-        id="mobile-menu-toggle"
-        class="md:hidden p-2 rounded-lg hover:bg-primary-800 transition-colors duration-200"
-        aria-label="Toggle menu"
-      >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
+      <!-- Mobile Actions -->
+      <div class="md:hidden flex items-center gap-2">
+        <!-- Cart Button (Mobile) -->
+        <button
+          id="header-cart-btn-mobile"
+          class="relative p-2 rounded-lg hover:bg-primary-800 transition-colors duration-200"
+          aria-label="Shopping cart"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+          </svg>
+          <span id="header-cart-count-mobile" class="hidden absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+            0
+          </span>
+        </button>
+
+        <!-- Menu Toggle -->
+        <button
+          id="mobile-menu-toggle"
+          class="p-2 rounded-lg hover:bg-primary-800 transition-colors duration-200"
+          aria-label="Toggle menu"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
     </div>
 
     <!-- Mobile Menu -->
@@ -91,5 +123,54 @@
 
   toggle?.addEventListener('click', () => {
     menu?.classList.toggle('hidden');
+  });
+
+  // Cart functionality
+  function updateCartCount() {
+    try {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const itemCount = cart.reduce((sum: number, item: any) => sum + item.quantity, 0);
+
+      const countBadge = document.getElementById('header-cart-count');
+      const countBadgeMobile = document.getElementById('header-cart-count-mobile');
+
+      if (itemCount > 0) {
+        if (countBadge) {
+          countBadge.textContent = String(itemCount);
+          countBadge.classList.remove('hidden');
+        }
+        if (countBadgeMobile) {
+          countBadgeMobile.textContent = String(itemCount);
+          countBadgeMobile.classList.remove('hidden');
+        }
+      } else {
+        countBadge?.classList.add('hidden');
+        countBadgeMobile?.classList.add('hidden');
+      }
+    } catch (e) {
+      console.error('Failed to update cart count:', e);
+    }
+  }
+
+  // Update count on page load
+  updateCartCount();
+
+  // Update count when cart changes
+  window.addEventListener('cart-add-item', updateCartCount);
+  window.addEventListener('storage', updateCartCount);
+
+  // Listen for custom cart-updated event from ShoppingCart component
+  window.addEventListener('cart-updated', updateCartCount);
+
+  // Open cart when header cart button is clicked
+  const headerCartBtn = document.getElementById('header-cart-btn');
+  const headerCartBtnMobile = document.getElementById('header-cart-btn-mobile');
+
+  headerCartBtn?.addEventListener('click', () => {
+    window.dispatchEvent(new CustomEvent('open-cart'));
+  });
+
+  headerCartBtnMobile?.addEventListener('click', () => {
+    window.dispatchEvent(new CustomEvent('open-cart'));
   });
 </script>
