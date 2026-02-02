@@ -18,6 +18,7 @@
   --color-primary-700: #4F260C;
   --color-primary-800: #3D1D09;
   --color-primary-900: #2C1508;
+  --color-primary: #6B3410; /* Default primary for bg-primary, text-primary, etc */
 
   /* Accent: Golden wheat and honey tones */
   --color-accent-50: #FFFBEB;
@@ -30,6 +31,7 @@
   --color-accent-700: #B45309;
   --color-accent-800: #92400E;
   --color-accent-900: #78350F;
+  --color-accent: #D97706; /* Default accent for bg-accent, text-accent, etc */
 
   /* Neutrals: Flour whites to dark chocolate */
   --color-neutral-50: #FAF9F6;  /* Flour white */
